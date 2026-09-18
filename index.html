@@ -146,6 +146,12 @@
   .rv.in{ opacity:1; transform:none; }
   .rv-d1{ transition-delay:.08s; } .rv-d2{ transition-delay:.16s; } .rv-d3{ transition-delay:.24s; } .rv-d4{ transition-delay:.32s; }
 
+  /* ─── tab panes (هر منو یک محتوا) ─── */
+  main > .pane{ display:none; }
+  main > .pane.on{ display:block; animation:paneIn .5s cubic-bezier(.16,.7,.3,1); }
+  @keyframes paneIn{ from{ opacity:0; transform:translateY(16px); } to{ opacity:1; transform:none; } }
+  @media (prefers-reduced-motion:reduce){ main > .pane.on{ animation:none; } }
+
   /* ═══════════ SIDE NAV (مَنو عمودی راست) ═══════════ */
   .side-nav{
     position:fixed; right:0; top:0; bottom:0; width:var(--side-w); z-index:110;
@@ -834,7 +840,7 @@
 
 <main id="main">
 <!-- ═══════════ HERO ═══════════ -->
-<section class="hero" id="home">
+<section class="hero pane on" id="home" data-tab="home">
   <div class="wrap hero-grid">
     <div>
       <div class="eyebrow"><span class="dot"></span> عرضه مستقیم از منبع · عمده و خرده</div>
@@ -891,7 +897,7 @@
 </section>
 
 <!-- ═══════════ MARQUEE ═══════════ -->
-<div class="marquee" aria-hidden="true">
+<div class="marquee pane on" data-tab="home" aria-hidden="true">
   <div class="marquee-track">
     <span><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M13 2L4 14H12L11 22L20 10H12L13 2Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg> شارژر و آداپتور</span>
     <span><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 8L2 12L4 16M20 8L22 12L20 16M9 4L7 20" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg> کابل شارژ</span>
@@ -904,7 +910,7 @@
 </div>
 
 <!-- ═══════════ TRUST BAND ═══════════ -->
-<div class="band">
+<div class="band pane on" data-tab="home">
   <div class="wrap band-row">
     <div class="band-item">
       <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L3 6V12C3 17 6.8 21.2 12 22C17.2 21.2 21 17 21 12V6L12 2Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M9 12L11 14L15 10" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -926,7 +932,7 @@
 </div>
 
 <!-- ═══════════ CATEGORIES ═══════════ -->
-<section id="products">
+<section id="products" class="pane" data-tab="products">
   <div class="wrap">
     <div class="section-head rv">
       <span class="kicker">دسته‌بندی کالا</span>
@@ -994,7 +1000,7 @@
 </section>
 
 <!-- ═══════════ PRODUCT SHOWCASE ═══════════ -->
-<section class="products" id="showcase">
+<section class="products pane" id="showcase" data-tab="showcase">
   <div class="wrap">
     <div class="section-head rv">
       <span class="kicker">پرفروش‌ترین‌ها</span>
@@ -1078,7 +1084,7 @@
 </section>
 
 <!-- ═══════════ WHY US ═══════════ -->
-<section class="why" id="why">
+<section class="why pane" id="why" data-tab="why">
   <div class="wrap">
     <div class="why-panel rv">
       <h3>پخش لوازم جانبی ماد در پیرانشهر</h3>
@@ -1128,7 +1134,7 @@
 </section>
 
 <!-- ═══════════ STATS ═══════════ -->
-<div class="stats">
+<div class="stats pane" data-tab="why">
   <div class="wrap stats-row">
     <div class="stat rv">
       <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M21 8L12 3L3 8V16L12 21L21 16V8Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M3 8L12 13L21 8M12 13V21" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>
@@ -1154,7 +1160,7 @@
 </div>
 
 <!-- ═══════════ TESTIMONIALS ═══════════ -->
-<section id="reviews">
+<section id="reviews" class="pane" data-tab="reviews">
   <div class="wrap">
     <div class="section-head rv">
       <span class="kicker">نظرات مشتریان</span>
@@ -1208,7 +1214,7 @@
 </section>
 
 <!-- ═══════════ FAQ ═══════════ -->
-<section id="support">
+<section id="support" class="pane" data-tab="support">
   <div class="wrap faq-wrap">
     <div class="faq-side rv">
       <span class="kicker">پشتیبانی</span>
@@ -1248,7 +1254,7 @@
 </section>
 
 <!-- ═══════════ CONTACT ═══════════ -->
-<section id="contact">
+<section id="contact" class="pane" data-tab="contact">
   <div class="wrap">
     <div class="section-head rv">
       <span class="kicker">تماس با ما</span>
@@ -1409,34 +1415,40 @@
     if (window.innerWidth >= 1180) setSide(false);
   });
 
-  /* ── scrollspy (اسکرول‌اسپای روی منوی راست) ── */
-  var secs = document.querySelectorAll('section[id]');
-  var spyLinks = document.querySelectorAll('.side-nav a[href^="#"]');
-  if ('IntersectionObserver' in window) {
-    var spy = new IntersectionObserver(function(entries){
-      entries.forEach(function(e){
-        if (e.isIntersecting) {
-          var id = e.target.getAttribute('id');
-          Array.prototype.forEach.call(spyLinks, function(l){
-            l.classList.toggle('active', l.getAttribute('href') === '#' + id);
-          });
-        }
-      });
-    }, { rootMargin:'-35% 0px -55% 0px' });
-    Array.prototype.forEach.call(secs, function(s){ spy.observe(s); });
+  /* ── tab panes (هر آیتم منوی راست، محتوای خودش را نمایش می‌دهد) ── */
+  var tabs = document.querySelectorAll('main > .pane');
+  var navLinks = document.querySelectorAll('.side-nav a[href^="#"]');
+  var TAB_IDS = {};
+  Array.prototype.forEach.call(tabs, function(p){ TAB_IDS[p.getAttribute('data-tab')] = true; });
 
-    var rev = new IntersectionObserver(function(entries, obs){
-      entries.forEach(function(e){
-        if (e.isIntersecting) {
-          e.target.classList.add('in');
-          obs.unobserve(e.target);
-        }
-      });
-    }, { rootMargin:'0px 0px -8% 0px', threshold:0.08 });
-    Array.prototype.forEach.call(document.querySelectorAll('.rv'), function(el){ rev.observe(el); });
-  } else {
-    Array.prototype.forEach.call(document.querySelectorAll('.rv'), function(el){ el.classList.add('in'); });
+  function showTab(id){
+    Array.prototype.forEach.call(tabs, function(p){
+      var on = p.getAttribute('data-tab') === id;
+      p.classList.toggle('on', on);
+      if (on) {
+        Array.prototype.forEach.call(p.querySelectorAll('.rv'), function(el){
+          el.classList.remove('in');
+          requestAnimationFrame(function(){ requestAnimationFrame(function(){ el.classList.add('in'); }); });
+        });
+      }
+    });
+    Array.prototype.forEach.call(navLinks, function(l){
+      l.classList.toggle('active', l.getAttribute('href') === '#' + id);
+    });
+    try { history.replaceState(null, '', location.pathname + location.search + '#' + id); } catch(e){}
+    window.scrollTo({ top:0, behavior:'smooth' });
   }
+
+  document.addEventListener('click', function(ev){
+    var a = ev.target.closest ? ev.target.closest('a[href^="#"]') : null;
+    if (a && TAB_IDS[a.getAttribute('href').slice(1)]) {
+      ev.preventDefault();
+      showTab(a.getAttribute('href').slice(1));
+    }
+  });
+
+  var initId = (location.hash && TAB_IDS[location.hash.slice(1)]) ? location.hash.slice(1) : 'home';
+  showTab(initId);
 
   /* ── animated counters ── */
   var nums = document.querySelectorAll('.stat [data-count]');
