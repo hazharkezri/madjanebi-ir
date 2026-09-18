@@ -628,14 +628,21 @@
   .c-card h4{ font-weight:800; font-size:1.02rem; }
   .c-card p{ color:var(--slate); font-size:.93rem; }
   .c-card a.phone{
-    display:flex; align-items:center; justify-content:space-between; gap:10px;
-    font-weight:800; color:var(--ink); font-size:.98rem;
-    padding:10px 15px; border-radius:12px; background:var(--paper);
+    display:flex; align-items:center; gap:11px;
+    color:var(--ink); border-radius:13px;
+    padding:8px 12px; background:var(--paper);
     border:1px solid transparent; transition:all .2s ease;
   }
-  .c-card a.phone:hover{ border-color:var(--gold); background:var(--white); }
-  .c-card a.phone::after{ content:"›"; color:var(--gold-deep); font-size:1.25rem; line-height:1; }
-  .c-card a.phone small{ font-size:.74rem; color:var(--slate); font-weight:700; }
+  .c-card a.phone:hover{ border-color:var(--gold); background:var(--white); box-shadow:var(--shadow-sm); }
+  .c-card a.phone .ph-ic{
+    flex-shrink:0; width:32px; height:32px; border-radius:10px; display:grid; place-items:center;
+    background:var(--gold-soft); color:var(--gold-deep);
+  }
+  .c-card a.phone .ph-ic.wa{ background:rgba(30,166,84,.12); color:#1EA654; }
+  .c-card a.phone .ph-ic svg{ width:15px; height:15px; }
+  .c-card a.phone .ph-txt{ display:flex; flex-direction:column; align-items:flex-start; line-height:1.45; min-width:0; flex:1; }
+  .c-card a.phone small{ font-size:.64rem; color:var(--slate); font-weight:700; }
+  .c-card a.phone .num{ font-size:.85rem; font-weight:700; letter-spacing:.02em; direction:ltr; unicode-bidi:isolate; }
   .c-card a.social{ color:var(--teal); font-weight:700; font-size:.93rem; direction:ltr; text-align:right; }
   .c-card a.social:hover{ text-decoration:underline; }
 
@@ -1274,15 +1281,15 @@
       <div class="c-card rv">
         <div class="ic"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M22 16.92V19.92C22 20.46 21.55 20.92 21 20.92C10.5 20.92 3.08 13.5 3.08 3C3.08 2.45 3.54 2 4.08 2H7.08C7.63 2 8.08 2.45 8.15 3C8.28 3.96 8.51 4.9 8.85 5.81C9 6.17 8.9 6.59 8.62 6.87L7.35 8.14C8.77 10.64 10.85 12.72 13.35 14.14L14.62 12.87C14.9 12.59 15.31 12.49 15.67 12.63C16.58 12.97 17.52 13.2 18.48 13.33C19.04 13.4 19.48 13.86 19.48 14.42L22 16.92Z" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
         <h4>شماره تماس</h4>
-        <a class="phone" href="tel:09144449877"><small>سعدی یوسفی</small><span class="num">۰۹۱۴ ۴۴۴ ۹۸۷۷</span></a>
-        <a class="phone" href="tel:09144749822"><small>منصور اقبالی</small><span class="num">۰۹۱۴ ۴۷۴ ۹۸۲۲</span></a>
+        <a class="phone" href="tel:09144449877"><span class="ph-ic"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M22 16.92V19.92C22 20.46 21.55 20.92 21 20.92C10.5 20.92 3.08 13.5 3.08 3C3.08 2.45 3.54 2 4.08 2H7.08C7.63 2 8.08 2.45 8.15 3C8.28 3.96 8.51 4.9 8.85 5.81C9 6.17 8.9 6.59 8.62 6.87L7.35 8.14C8.77 10.64 10.85 12.72 13.35 14.14L14.62 12.87C14.9 12.59 15.31 12.49 15.67 12.63C16.58 12.97 17.52 13.2 18.48 13.33C19.04 13.4 19.48 13.86 19.48 14.42L22 16.92Z" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="ph-txt"><small>سعدی یوسفی</small><span class="num">۰۹۱۴ ۴۴۴ ۹۸۷۷</span></span></a>
+        <a class="phone" href="tel:09144749822"><span class="ph-ic"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M22 16.92V19.92C22 20.46 21.55 20.92 21 20.92C10.5 20.92 3.08 13.5 3.08 3C3.08 2.45 3.54 2 4.08 2H7.08C7.63 2 8.08 2.45 8.15 3C8.28 3.96 8.51 4.9 8.85 5.81C9 6.17 8.9 6.59 8.62 6.87L7.35 8.14C8.77 10.64 10.85 12.72 13.35 14.14L14.62 12.87C14.9 12.59 15.31 12.49 15.67 12.63C16.58 12.97 17.52 13.2 18.48 13.33C19.04 13.4 19.48 13.86 19.48 14.42L22 16.92Z" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="ph-txt"><small>منصور اقبالی</small><span class="num">۰۹۱۴ ۴۷۴ ۹۸۲۲</span></span></a>
       </div>
 
       <div class="c-card rv rv-d1">
         <div class="ic wa"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12C2 13.85 2.5 15.58 3.38 17.06L2 22L7.09 20.65C8.51 21.43 10.2 21.9 12 21.9C17.52 21.9 22 17.42 22 11.9C22 6.38 17.52 2 12 2Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M8.5 7.5C8.9 7.5 9.1 7.7 9.3 8.2L10 10C10.1 10.3 10 10.6 9.8 10.8L9.2 11.4C9.9 12.8 11.1 13.9 12.5 14.6L13.1 14C13.3 13.8 13.6 13.7 13.9 13.8L15.7 14.5C16.2 14.7 16.4 14.9 16.4 15.3C16.4 16.4 15.5 17.2 14.4 17.2C10.6 17.2 6.8 13.4 6.8 9.6C6.8 8.4 7.4 7.5 8.5 7.5Z" fill="currentColor"/></svg></div>
         <h4>واتساپ</h4>
-        <a class="phone" href="https://wa.me/989144449877" target="_blank" rel="noopener"><small>سعدی یوسفی</small><span class="num">۰۹۱۴ ۴۴۴ ۹۸۷۷</span></a>
-        <a class="phone" href="https://wa.me/989144749822" target="_blank" rel="noopener"><small>منصور اقبالی</small><span class="num">۰۹۱۴ ۴۷۴ ۹۸۲۲</span></a>
+        <a class="phone" href="https://wa.me/989144449877" target="_blank" rel="noopener"><span class="ph-ic wa"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12C2 13.85 2.5 15.58 3.38 17.06L2 22L7.09 20.65C8.51 21.43 10.2 21.9 12 21.9C17.52 21.9 22 17.42 22 11.9C22 6.38 17.52 2 12 2Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M13.7 14.1C14.1 14.2 14 14.6 13.8 14.8C13 15.5 12 15.4 11.1 14.9C9.9 14.3 8.7 13.1 8.2 12C7.8 11.1 7.6 10.1 8.3 9.3C8.5 9.1 8.9 9 9.1 9.3C9.3 9.6 9.7 10.1 9.9 10.3C10 10.5 10 10.6 9.9 10.8C9.8 11 9.6 11.4 9.5 11.5C9.4 11.7 9.3 11.8 9.5 12.1C9.7 12.4 10.1 13 10.5 13.3C10.9 13.7 11.3 13.9 11.6 14.1C11.9 14.2 12 14.1 12.1 14C12.3 13.8 12.6 13.4 12.8 13.2C13 13 13.2 13 13.4 13.2C13.6 13.3 14.1 13.8 14.2 14C14.4 14.1 14.4 14.2 14.4 14.3C14.4 14.4 14.4 14.5 14.3 14.5C14.2 14.6 13.9 14.9 13.7 14.1Z" fill="currentColor"/><path d="M8.2 7.5C8.6 7.5 8.8 7.7 9 8.2L9.7 10C9.8 10.3 9.7 10.6 9.5 10.8L8.9 11.4C9.6 12.8 10.8 13.9 12.2 14.6L12.8 14C13 13.8 13.3 13.7 13.6 13.8L15.4 14.5C15.9 14.7 16.1 14.9 16.1 15.3C16.1 16.4 15.2 17.2 14.1 17.2C10.3 17.2 6.5 13.4 6.5 9.6C6.5 8.4 7.1 7.5 8.2 7.5Z" fill="currentColor"/></svg></span><span class="ph-txt"><small>سعدی یوسفی</small><span class="num">۰۹۱۴ ۴۴۴ ۹۸۷۷</span></span></a>
+        <a class="phone" href="https://wa.me/989144749822" target="_blank" rel="noopener"><span class="ph-ic wa"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12C2 13.85 2.5 15.58 3.38 17.06L2 22L7.09 20.65C8.51 21.43 10.2 21.9 12 21.9C17.52 21.9 22 17.42 22 11.9C22 6.38 17.52 2 12 2Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M13.7 14.1C14.1 14.2 14 14.6 13.8 14.8C13 15.5 12 15.4 11.1 14.9C9.9 14.3 8.7 13.1 8.2 12C7.8 11.1 7.6 10.1 8.3 9.3C8.5 9.1 8.9 9 9.1 9.3C9.3 9.6 9.7 10.1 9.9 10.3C10 10.5 10 10.6 9.9 10.8C9.8 11 9.6 11.4 9.5 11.5C9.4 11.7 9.3 11.8 9.5 12.1C9.7 12.4 10.1 13 10.5 13.3C10.9 13.7 11.3 13.9 11.6 14.1C11.9 14.2 12 14.1 12.1 14C12.3 13.8 12.6 13.4 12.8 13.2C13 13 13.2 13 13.4 13.2C13.6 13.3 14.1 13.8 14.2 14C14.4 14.1 14.4 14.2 14.4 14.3C14.4 14.4 14.4 14.5 14.3 14.5C14.2 14.6 13.9 14.9 13.7 14.1Z" fill="currentColor"/><path d="M8.2 7.5C8.6 7.5 8.8 7.7 9 8.2L9.7 10C9.8 10.3 9.7 10.6 9.5 10.8L8.9 11.4C9.6 12.8 10.8 13.9 12.2 14.6L12.8 14C13 13.8 13.3 13.7 13.6 13.8L15.4 14.5C15.9 14.7 16.1 14.9 16.1 15.3C16.1 16.4 15.2 17.2 14.1 17.2C10.3 17.2 6.5 13.4 6.5 9.6C6.5 8.4 7.1 7.5 8.2 7.5Z" fill="currentColor"/></svg></span><span class="ph-txt"><small>منصور اقبالی</small><span class="num">۰۹۱۴ ۴۷۴ ۹۸۲۲</span></span></a>
       </div>
 
       <div class="c-card rv rv-d2">
