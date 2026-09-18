@@ -274,12 +274,22 @@
   .hero-grid{ position:relative; z-index:2; display:grid; grid-template-columns:1.08fr .92fr; gap:52px; align-items:center; }
 
   .eyebrow{
-    display:inline-flex; align-items:center; gap:10px; margin-bottom:24px;
-    background:rgba(201,162,39,.13); border:1px solid rgba(231,200,115,.3);
-    color:var(--gold-lite); font-weight:700; font-size:.83rem;
-    padding:8px 17px; border-radius:999px;
-    -webkit-backdrop-filter:blur(6px); backdrop-filter:blur(6px);
+    display:inline-flex; align-items:center; gap:10px; margin-bottom:26px;
+    background:linear-gradient(120deg, rgba(201,162,39,.24), rgba(201,162,39,.07));
+    border:1px solid rgba(240,215,143,.5);
+    color:#FFE9A8; font-weight:800; font-size:.92rem; letter-spacing:.01em;
+    padding:10px 20px; border-radius:999px;
+    box-shadow:0 0 0 5px rgba(201,162,39,.08), 0 12px 32px rgba(201,162,39,.22), inset 0 1px 0 rgba(255,255,255,.12);
+    -webkit-backdrop-filter:blur(8px); backdrop-filter:blur(8px);
   }
+  .eyebrow b{
+    font-weight:900;
+    background:var(--grad-gold);
+    -webkit-background-clip:text; background-clip:text;
+    -webkit-text-fill-color:transparent; color:transparent;
+    text-shadow:none; filter:drop-shadow(0 0 10px rgba(246,218,140,.45));
+  }
+  .eyebrow svg{ width:16px; height:16px; color:#FFE199; }
   .eyebrow .dot{ width:7px; height:7px; border-radius:50%; background:var(--gold-lite); box-shadow:0 0 0 4px rgba(231,200,115,.16); animation:pulse 2.2s ease-in-out infinite; }
 
   .hero h1{ font-size:clamp(2.2rem,4.5vw,3.6rem); font-weight:900; line-height:1.26; letter-spacing:-.025em; max-width:17ch; }
@@ -843,7 +853,7 @@
 <section class="hero pane on" id="home" data-tab="home">
   <div class="wrap hero-grid">
     <div>
-      <div class="eyebrow"><span class="dot"></span> عرضه مستقیم از منبع · عمده و خرده</div>
+      <div class="eyebrow"><span class="dot"></span><span>عرضه مستقیم از کشور <b>چین</b> · عمده و خرده</span><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"/></svg></div>
       <h1><span class="grad">مرجع کامل</span> لوازم جانبی موبایل در فروشگاه ماد پیرانشهر</h1>
       <p class="lead">عرضه انواع لوازم جانبی موبایل؛ از شارژر و کابل تا قاب، گلس، هندزفری و پاوربانک. کیفیت تضمین‌شده و قیمت رقابتی برای فروشگاه‌های موبایل و مشتریان نهایی در پیرانشهر.</p>
       <div class="hero-actions">
