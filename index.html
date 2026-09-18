@@ -698,6 +698,86 @@
   }
   .map-link:hover{ transform:translateY(-3px); box-shadow:0 16px 34px rgba(0,0,0,.4); }
 
+  /* pay */
+  #pay .section-head{ text-align:center; }
+  #pay .section-head h2{ font-size:clamp(1.55rem,3vw,2.2rem); font-weight:900; margin-top:10px; }
+  #pay .section-head h2 .grad{ background:var(--grad-gold); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; color:transparent; }
+  #pay .section-head p{ max-width:56ch; margin-inline:auto; color:var(--slate); margin-top:12px; }
+  .pay-trust{ display:flex; justify-content:center; flex-wrap:wrap; gap:10px; margin-top:28px; }
+  .pay-trust span{
+    display:inline-flex; align-items:center; gap:7px; font-size:.82rem; font-weight:800; color:var(--teal);
+    background:#EAF6F1; border:1px solid rgba(14,140,126,.22); padding:9px 16px; border-radius:999px;
+  }
+  .pay-trust span svg{ width:15px; height:15px; }
+  .pay-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:22px; margin-top:36px; }
+  .pay-card{
+    background:var(--white); border:1px solid var(--line); border-radius:var(--r-xl);
+    padding:30px 26px; display:flex; flex-direction:column; align-items:center; text-align:center; gap:12px;
+    transition:transform .28s ease, box-shadow .28s ease, border-color .28s ease;
+  }
+  .pay-card:hover{ transform:translateY(-6px); box-shadow:var(--shadow-md); border-color:rgba(201,162,39,.45); }
+  .pay-ic{
+    width:58px; height:58px; border-radius:18px; display:grid; place-items:center;
+    background:var(--grad-gold); color:var(--white);
+    box-shadow:0 10px 24px rgba(201,162,39,.35);
+  }
+  .pay-ic svg{ width:27px; height:27px; }
+  .pay-card h4{ font-weight:900; font-size:1.05rem; }
+  .pay-sub{ color:var(--slate); font-size:.83rem; }
+  .pay-val{
+    width:100%; text-align:center; font-weight:900; letter-spacing:.06em; font-size:1.02rem;
+    background:var(--paper-2); border:1px dashed var(--line); color:var(--slate);
+    padding:12px 8px; border-radius:12px; font-family:'Consolas','Courier New',monospace;
+  }
+  .cpy{
+    display:inline-flex; align-items:center; gap:8px; padding:10px 20px; border-radius:999px;
+    font-size:.82rem; font-weight:800; font-family:inherit; color:var(--gold-deep);
+    background:var(--gold-soft); border:1px solid rgba(201,162,39,.3);
+    transition:all .2s ease; cursor:pointer;
+  }
+  .cpy svg{ width:15px; height:15px; }
+  .cpy:hover:not(:disabled){ background:var(--grad-gold); color:var(--white); transform:translateY(-2px); }
+  .cpy.copied{ background:#1EA654; color:#fff; border-color:#1EA654; }
+  .cpy:disabled{ opacity:.55; cursor:not-allowed; }
+  .pay-note{
+    margin-top:32px; position:relative; overflow:hidden;
+    background:var(--grad-ink); color:var(--white); border-radius:var(--r-xl);
+    padding:28px 30px; display:flex; align-items:center; gap:18px; flex-wrap:wrap;
+  }
+  .pay-note::before{ content:""; position:absolute; inset:0;
+    background:radial-gradient(ellipse 50% 120% at 94% 40%, rgba(231,200,115,.2), transparent 60%); }
+  .pay-note > *{ position:relative; }
+  .pay-note .pay-note-ic{
+    flex-shrink:0; width:46px; height:46px; border-radius:14px; display:grid; place-items:center;
+    background:rgba(231,200,115,.14); color:var(--gold-lite);
+  }
+  .pay-note .pay-note-ic svg{ width:22px; height:22px; }
+  .pay-note div{ flex:1; min-width:220px; }
+  .pay-note b{ font-weight:900; font-size:.98rem; display:block; }
+  .pay-note span{ color:rgba(255,255,255,.6); font-size:.86rem; margin-top:4px; display:block; }
+  .pay-note .btn{ margin:0; }
+  .pay-steps{ margin-top:40px; background:var(--paper); border:1px solid var(--line); border-radius:var(--r-xl); padding:34px; }
+  .pay-steps h3{ font-weight:900; font-size:1.15rem; text-align:center; margin-bottom:28px; }
+  .pay-steps-row{ display:grid; grid-template-columns:repeat(4,1fr); gap:18px; counter-reset:paystep; }
+  .pay-step{ text-align:center; position:relative; padding-top:8px; }
+  .pay-step::before{
+    counter-increment:paystep; content:counter(paystep);
+    width:40px; height:40px; margin:0 auto 10px; display:grid; place-items:center;
+    border-radius:50%; font-weight:900; color:var(--gold-deep);
+    background:var(--gold-soft); border:1px solid rgba(201,162,39,.35);
+  }
+  .pay-step b{ font-weight:800; font-size:.92rem; display:block; margin-bottom:4px; }
+  .pay-step span{ font-size:.8rem; color:var(--slate); line-height:1.7; display:block; }
+  @media (max-width:980px){
+    .pay-grid{ grid-template-columns:1fr; max-width:460px; margin-inline:auto; }
+    .pay-steps-row{ grid-template-columns:repeat(2,1fr); }
+  }
+  @media (max-width:640px){
+    .pay-steps-row{ grid-template-columns:1fr; }
+    .pay-note{ padding:24px; text-align:center; justify-content:center; }
+    .pay-note .pay-note-ic{ margin-inline:auto; }
+  }
+
   /* footer */
   footer{ background:var(--indigo-night); color:rgba(255,255,255,.55); padding:70px 0 0; position:relative; overflow:hidden; }
   footer::before{ content:""; position:absolute; inset:0; pointer-events:none;
@@ -848,6 +928,10 @@
     <a class="s-link" href="#contact">
       <span class="ic"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M22 16.92V19.92C22 20.46 21.55 20.92 21 20.92C10.5 20.92 3.08 13.5 3.08 3C3.08 2.45 3.54 2 4.08 2H7.08C7.63 2 8.08 2.45 8.15 3C8.28 3.96 8.51 4.9 8.85 5.81C9 6.17 8.9 6.59 8.62 6.87L7.35 8.14C8.77 10.64 10.85 12.72 13.35 14.14L14.62 12.87C14.9 12.59 15.31 12.49 15.67 12.63C16.58 12.97 17.52 13.2 18.48 13.33C19.04 13.4 19.48 13.86 19.48 14.42L22 16.92Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
       تماس با ما
+    </a>
+    <a class="s-link" href="#pay">
+      <span class="ic"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="5" width="18" height="14" rx="2.5" stroke="currentColor" stroke-width="1.8"/><path d="M3 9.5H21" stroke="currentColor" stroke-width="1.8"/><path d="M7 15H12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+      پرداخت آنلاین
     </a>
   </nav>
 </aside>
@@ -1353,6 +1437,80 @@
   </div>
 </section>
 
+<!-- ═══════════ PAY ═══════════ -->
+<section id="pay" class="pane" data-tab="pay">
+  <div class="wrap">
+    <div class="section-head rv">
+      <span class="kicker">پرداخت آنلاین</span>
+      <h2>پرداخت امن و سریع به <span class="grad">حساب ماد</span></h2>
+      <p>برای تکمیل سفارش، مبلغ را از طریق راه‌های زیر به حساب فروشگاه واریز کنید. پرداخت شما کاملاً امن و پیگیری‌شده انجام می‌شود.</p>
+    </div>
+
+    <div class="pay-trust rv">
+      <span><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 6L9 17L4 12" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>پرداخت امن</span>
+      <span><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 6L9 17L4 12" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>حساب رسمی فروشگاه</span>
+      <span><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 6L9 17L4 12" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>تأیید و ارسال سریع</span>
+    </div>
+
+    <div class="pay-grid">
+      <div class="pay-card rv">
+        <span class="pay-ic"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="5" width="18" height="14" rx="2.5" stroke="currentColor" stroke-width="1.7"/><path d="M3 9.5H21" stroke="currentColor" stroke-width="1.7"/><path d="M7 15H12" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></span>
+        <h4>کارت به کارت</h4>
+        <p class="pay-sub">پرداخت با شماره کارت از طریق اپلیکیشن بانکی</p>
+        <div class="pay-val" dir="ltr">— — — —</div>
+        <button class="cpy" type="button" disabled><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="9" y="9" width="11" height="11" rx="2" stroke="currentColor" stroke-width="1.7"/><path d="M5 15V5C5 3.9 5.9 3 7 3H15" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>شماره کارت به‌زودی</button>
+      </div>
+
+      <div class="pay-card rv rv-d1">
+        <span class="pay-ic"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 9L12 3L21 9H3Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M5 9V17M9.5 9V17M14.5 9V17M19 9V17" stroke="currentColor" stroke-width="1.7"/><path d="M3 21H21" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></span>
+        <h4>شماره حساب</h4>
+        <p class="pay-sub">واریز مستقیم از طریق شماره حساب بانکی</p>
+        <div class="pay-val" dir="ltr">— — — —</div>
+        <button class="cpy" type="button" disabled><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="9" y="9" width="11" height="11" rx="2" stroke="currentColor" stroke-width="1.7"/><path d="M5 15V5C5 3.9 5.9 3 7 3H15" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>شماره حساب به‌زودی</button>
+      </div>
+
+      <div class="pay-card rv rv-d2">
+        <span class="pay-ic"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14 2H6C5.45 2 5 2.45 5 3V21C5 21.55 5.45 22 6 22H18C18.55 22 19 21.55 19 21V8L14 2Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M14 2V8H19" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M9 13H15M9 16.5H15M9 9.5H10.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></span>
+        <h4>شماره شبا</h4>
+        <p class="pay-sub">واریز بین‌بانکی با شماره شبا (IR…)</p>
+        <div class="pay-val" dir="ltr">IR · · · — · · ·</div>
+        <button class="cpy" type="button" disabled><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="9" y="9" width="11" height="11" rx="2" stroke="currentColor" stroke-width="1.7"/><path d="M5 15V5C5 3.9 5.9 3 7 3H15" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>شماره شبا به‌زودی</button>
+      </div>
+    </div>
+
+    <div class="pay-note rv">
+      <span class="pay-note-ic"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="9.5" stroke="currentColor" stroke-width="1.7"/><path d="M12 11V16.5" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/><circle cx="12" cy="7.8" r="1.1" fill="currentColor"/></svg></span>
+      <div>
+        <b>مشخصات کامل حساب به‌زودی در همین بخش منتشر می‌شود</b>
+        <span>پس از واریز، تصویر فیش را در واتساپ برای ما ارسال کنید تا سفارش شما نهایی و همان روز ارسال شود.</span>
+      </div>
+      <a class="btn btn-wa" href="https://wa.me/989144449877?text=%D8%B3%D9%84%D8%A7%D9%85%D8%8C%20%D9%81%DB%8C%D8%B4%20%D9%88%D8%A7%D8%B1%DB%8C%D8%B2%20%D8%B3%D9%81%D8%A7%D8%B1%D8%B4%20%D9%85%D9%86%20%D8%B1%D8%A7%20%D8%A7%D8%B1%D8%B3%D8%A7%D9%84%20%D9%85%DB%8C%DA%A9%D9%86%D9%85." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12C2 13.85 2.5 15.58 3.38 17.06L2 22L7.09 20.65C8.51 21.43 10.2 21.9 12 21.9C17.52 21.9 22 17.42 22 11.9C22 6.38 17.52 2 12 2Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M8.5 7.5C8.9 7.5 9.1 7.7 9.3 8.2L10 10C10.1 10.3 10 10.6 9.8 10.8L9.2 11.4C9.9 12.8 11.1 13.9 12.5 14.6L13.1 14C13.3 13.8 13.6 13.7 13.9 13.8L15.7 14.5C16.2 14.7 16.4 14.9 16.4 15.3C16.4 16.4 15.5 17.2 14.4 17.2C10.6 17.2 6.8 13.4 6.8 9.6C6.8 8.4 7.4 7.5 8.5 7.5Z" fill="currentColor"/></svg>ارسال رسید در واتساپ</a>
+    </div>
+
+    <div class="pay-steps rv">
+      <h3>مراحل پرداخت و سفارش</h3>
+      <div class="pay-steps-row">
+        <div class="pay-step">
+          <b>ثبت سفارش</b>
+          <span>کالای موردنظر را از طریق تماس یا واتساپ ثبت کنید.</span>
+        </div>
+        <div class="pay-step">
+          <b>واریز مبلغ</b>
+          <span>مبلغ سفارش را با کارت‌به‌کارت، شماره حساب یا شبا پرداخت کنید.</span>
+        </div>
+        <div class="pay-step">
+          <b>ارسال رسید</b>
+          <span>تصویر فیش پرداخت را در واتساپ برای ما بفرستید.</span>
+        </div>
+        <div class="pay-step">
+          <b>تأیید و ارسال</b>
+          <span>پس از تأیید، سفارش ثبت شده و همان روز ارسال می‌شود.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ═══════════ FOOTER ═══════════ -->
 <footer>
   <div class="wrap">
@@ -1378,6 +1536,7 @@
         <a href="#why">چرا ماد</a>
         <a href="#support">پشتیبانی</a>
         <a href="#contact">تماس با ما</a>
+        <a href="#pay">پرداخت آنلاین</a>
       </div>
 
       <div class="foot-col">
@@ -1391,7 +1550,7 @@
     </div>
 
     <div class="foot-bar">
-      <span>© تمامی حقوق برای پخش لوازم جانبی ماد پیرانشهر محفوظ است.</span>
+      <span>© تمامی حقوق سایت برای فروشگاه لوازم جانبی ماد می باشد.</span>
     </div>
   </div>
 </footer>
@@ -1486,6 +1645,30 @@
     if (a && TAB_IDS[a.getAttribute('href').slice(1)]) {
       ev.preventDefault();
       showTab(a.getAttribute('href').slice(1));
+    }
+  });
+
+  /* ── copy payment numbers ── */
+  document.addEventListener('click', function(ev){
+    var b = ev.target.closest ? ev.target.closest('.cpy') : null;
+    if (!b || b.disabled) return;
+    var val = (b.getAttribute('data-cpy') || '').trim();
+    if (!val) return;
+    function done(){
+      b.classList.add('copied');
+      var t = b.textContent;
+      b.textContent = 'کپی شد';
+      setTimeout(function(){ b.classList.remove('copied'); b.textContent = t; }, 1600);
+    }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(val).then(done, done);
+    } else {
+      var ta = document.createElement('textarea');
+      ta.value = val; ta.style.position = 'fixed'; ta.style.opacity = '0';
+      document.body.appendChild(ta); ta.select();
+      try { document.execCommand('copy'); } catch(e){}
+      document.body.removeChild(ta);
+      done();
     }
   });
 
